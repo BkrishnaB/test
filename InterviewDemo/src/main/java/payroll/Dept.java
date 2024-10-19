@@ -1,6 +1,7 @@
 package payroll;
 
 import java.util.List;
+import java.util.Objects;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -44,5 +45,25 @@ class Dept {
 	public void setEmp(List<Employee> emp) {
 		this.emp = emp;
 	}
-	
+
+	  @Override
+	  public boolean equals(Object o) {
+
+	    if (this == o)
+	      return true;
+	    if (!(o instanceof Dept))
+	      return false;
+	    Dept dept = (Dept) o;
+	    return Objects.equals(this.deptId, dept.deptId) && Objects.equals(this.deptName, dept.deptName);
+	  }
+
+	  @Override
+	  public int hashCode() {
+	    return Objects.hash(this.deptId, this.deptName);
+	  }
+
+	  @Override
+	  public String toString() {
+	    return "Department{" + "id=" + this.deptId + ", name='" + this.deptName +"'}'";
+	  }
 }

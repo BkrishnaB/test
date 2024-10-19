@@ -12,9 +12,10 @@ class Employee {
 
   private @Id
   @GeneratedValue Long id;
-  private String name;
-  private String role;
-private Long deptId;
+   String name;
+   String role;
+   Long deptId;
+   
   Employee() {}
 
   Employee(String name, String role, Long deptId) {
